@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVM Panel - Complete Installation Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a69bd);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4a69bd;
+        }
+        
+        h3 {
+            color: #4a69bd;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #4a69bd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #4a69bd;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        code {
+            background: #2c3e50;
+            color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        pre {
+            background: #2c3e50;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .note {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: #4a69bd;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 30px;
+        }
+        
+        .command {
+            position: relative;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4a69bd;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .copy-btn:hover {
+            background: #3c5aa8;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HVM Panel Installation Guide</h1>
+            <p class="subtitle">Complete Step-by-Step Tutorial for Setting Up Your VPS Management Panel</p>
+        </header>
+        
+        <div class="content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#introduction">1. Introduction</a></li>
+                    <li><a href="#prerequisites">2. Prerequisites</a></li>
+                    <li><a href="#installation">3. Installation Steps</a></li>
+                    <li><a href="#configuration">4. Configuration</a></li>
+                    <li><a href="#usage">5. Basic Usage</a></li>
+                    <li><a href="#troubleshooting">6. Troubleshooting</a></li>
+                    <li><a href="#security">7. Security Considerations</a></li>
+                </ul>
+            </div>
+            
+            <div class="section" id="introduction">
+                <h2>1. Introduction</h2>
+                <p>HVM Panel is a powerful web-based control panel for managing Docker-based VPS instances. It provides a user-friendly interface for creating, managing, and monitoring virtual private servers with features like:</p>
+                <ul>
+                    <li>VPS creation and management</li>
+                    <li>Resource monitoring</li>
+                    <li>SSH access via web console</li>
+                    <li>File management</li>
+                    <li>User management</li>
+                    <li>And much more</li>
+                </ul>
+                <p>This guide will walk you through the complete installation and setup process.</p>
+            </div>
+            
+            <div class="section" id="prerequisites">
+                <h2>2. Prerequisites</h2>
+                <p>Before installing HVM Panel, ensure your system meets the following requirements:</p>
+                
+                <div class="step">
+                    <h3><span class="step-number">1</span> System Requirements</h3>
+                    <ul>
+                        <li>Ubuntu 20.04/22.04 or CentOS 7/8 (recommended)</li>
+                        <li>Minimum 2GB RAM (4GB+ recommended for multiple VPS instances)</li>
+                        <li>At least 20GB of free disk space</li>
+                        <li>Root or sudo access</li>
+                    </ul>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">2</span> Required Software</h3>
+                    <ul>
+                        <li>Python 3.8 or higher</li>
+                        <li>Docker and Docker Compose</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+                
+                <div class="warning">
+                    <strong>Important:</strong> This panel creates and manages Docker containers. Make sure your system supports Docker and has sufficient resources for your planned VPS instances.
+                </div>
+            </div>
+            
+            <div class="section" id="installation">
+                <h2>3. Installation Steps</h2>
+                
+                <div class="step">
+                    <h3><span class="step-number">1</span> Update System and Install Dependencies</h3>
+                    <p>First, update your system package repository and install basic dependencies:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Update system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install required dependencies
+sudo apt install -y curl wget git python3 python3-pip python3-venv</code></pre>
+                    </div>
+                    
+                    <p>For CentOS/RHEL systems:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Update system packages
+sudo yum update -y
+
+# Install required dependencies
+sudo yum install -y curl wget git python3 python3-pip</code></pre>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">2</span> Install Docker</h3>
+                    <p>HVM Panel requires Docker to be installed. Run the following command to install Docker:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Download and run Docker installation script
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# Add your user to the docker group
+sudo usermod -aG docker $USER
+
+# Start and enable Docker service
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Verify Docker installation
+docker --version</code></pre>
+                    </div>
+                    
+                    <div class="note">
+                        <strong>Note:</strong> After adding your user to the docker group, you may need to log out and log back in for the changes to take effect.
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">3</span> Download HVM Panel</h3>
+                    <p>Create a directory for the panel and download the source code:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Create directory for HVM Panel
+sudo mkdir -p /opt/hvm-panel
+cd /opt/hvm-panel
+
+# Download the panel code (replace with actual repository if available)
+wget -q https://github.com/hvms/hvm/releases/download/V1/hvm.zip
+# For this tutorial, we'll create the main Python file
+sudo touch hvm_panel.py</code></pre>
+                    </div>
+                    
+                    <p>Copy the HVM Panel Python code provided and save it as <code>hvm_panel.py</code> in the <code>/opt/hvm-panel</code> directory.</p>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">4</span> Install Python Dependencies</h3>
+                    <p>Create a Python virtual environment and install required packages:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Create virtual environment
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install required Python packages
+pip install flask flask-socketio flask-login docker paramiko psutil python-dotenv email-validator</code></pre>
+                    </div>
+                    
+                    <p>Alternatively, create a <code>requirements.txt</code> file with the following content:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code>flask
+flask-socketio
+flask-login
+docker
+paramiko
+psutil
+python-dotenv
+email-validator
+werkzeug</code></pre>
+                    </div>
+                    
+                    <p>Then install all dependencies at once:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code>pip install -r requirements.txt</code></pre>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">5</span> Create Necessary Directories</h3>
+                    <p>Create the required directories for the panel to function properly:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Create directories for templates, uploads, and image cache
+sudo mkdir -p templates static uploads image_cache
+
+# Set proper permissions
+sudo chown -R $USER:$USER /opt/hvm-panel
+sudo chmod -R 755 /opt/hvm-panel</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section" id="configuration">
+                <h2>4. Configuration</h2>
+                
+                <div class="step">
+                    <h3><span class="step-number">1</span> Environment Configuration</h3>
+                    <p>Create a <code>.env</code> file to configure your panel settings:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Create .env file
+nano .env</code></pre>
+                    </div>
+                    
+                    <p>Add the following configuration to the file (adjust values as needed):</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Panel Configuration
+SECRET_KEY=your-secret-key-here
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=secure-admin-password
+PANEL_NAME=HVM VPS Panel
+WATERMARK=HVM VPS Service
+WELCOME_MESSAGE=Welcome to HVM VPS Panel
+
+# VPS Configuration
+MAX_VPS_PER_USER=5
+DEFAULT_OS_IMAGE=ubuntu:22.04
+DOCKER_NETWORK=hvm_network
+MAX_CONTAINERS=50
+
+# Server Configuration
+SERVER_IP=your-server-ip
+SERVER_PORT=3000
+DEBUG=False
+
+# Email Configuration (Optional)
+SMTP_SERVER=smtp.example.com
+SMTP_PORT=587
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="df8c928b8f808a8c9a8de2aaacbaad9fbaa7beb2afb3baf1bcb0b2">[email&#160;protected]</a>
+SMTP_PASS=your-smtp-password
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="125c5d465b545b5153465b5d5c4d575f535b5e2f73767f7b7c52776a737f627e773c717d7f">[email&#160;protected]</a></code></pre>
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>Security Note:</strong> Change the default admin credentials and generate a strong secret key before going live.
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">2</span> Create HTML Templates</h3>
+                    <p>The panel requires HTML templates to render the web interface. Create a <code>templates</code> directory and add the following basic templates:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Create templates directory
+mkdir -p templates
+
+# Create basic login template
+nano templates/login.html</code></pre>
+                    </div>
+                    
+                    <p>Add this basic login template:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Login - {{ panel_name }}&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Login to {{ panel_name }}&lt;/h1&gt;
+    {% if error %}
+        &lt;p style="color: red;"&gt;{{ error }}&lt;/p&gt;
+    {% endif %}
+    &lt;form method="POST"&gt;
+        &lt;input type="text" name="username" placeholder="Username" required&gt;
+        &lt;input type="password" name="password" placeholder="Password" required&gt;
+        &lt;button type="submit"&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                    
+                    <p>You'll need to create additional templates for dashboard, VPS management, etc. Refer to the Flask documentation for creating complete templates.</p>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">3</span> Create Systemd Service</h3>
+                    <p>Create a systemd service file to run the panel as a service:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Create systemd service file
+sudo nano /etc/systemd/system/hvm-panel.service</code></pre>
+                    </div>
+                    
+                    <p>Add the following content to the service file:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code>[Unit]
+Description=HVM VPS Panel
+After=network.target docker.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/hvm-panel
+Environment=PATH=/opt/hvm-panel/venv/bin
+ExecStart=/opt/hvm-panel/venv/bin/python3 hvm_panel.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+                    </div>
+                    
+                    <p>Enable and start the service:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code># Reload systemd
+sudo systemctl daemon-reload
+
+# Enable the service to start on boot
+sudo systemctl enable hvm-panel
+
+# Start the service
+sudo systemctl start hvm-panel
+
+# Check service status
+sudo systemctl status hvm-panel</code></pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section" id="usage">
+                <h2>5. Basic Usage</h2>
+                
+                <div class="step">
+                    <h3><span class="step-number">1</span> Accessing the Panel</h3>
+                    <p>Once the panel is running, access it through your web browser:</p>
+                    
+                    <div class="command">
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <pre><code>http://your-server-ip:3000</code></pre>
+                    </div>
+                    
+                    <p>Use the admin credentials you set in the <code>.env</code> file to log in.</p>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">2</span> Creating Your First VPS</h3>
+                    <p>After logging in:</p>
+                    <ol>
+                        <li>Navigate to the "Create VPS" section</li>
+                        <li>Configure the VPS resources (CPU, RAM, Disk)</li>
+                        <li>Select an OS image</li>
+                        <li>Set expiration if needed</li>
+                        <li>Click "Create"</li>
+                    </ol>
+                    
+                    <p>The panel will automatically build the Docker container and set up your VPS.</p>
+                </div>
+                
+                <div class="step">
+                    <h3><span class="step-number">3</span> Managing VPS Instances</h3>
+                    <p>From the dashboard, you can:</p>
+                    <ul>
+                        <li>Start/Stop/Restart VPS instances</li>
+                        <li>Access VPS console via web SSH</li>
+                        <li>Monitor resource usage</li>
+                        <li>Manage files</li>
+                        <li>Change passwords</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section" id="troubleshooting">
+                <h2>6. Troubleshooting</h2>
+                
+                <div class="step">
+                    <h3>Common Issues and Solutions</h3>
+                    
+                    <div class="warning">
+                        <strong>Issue:</strong> Panel fails to start<br>
+                        <strong>Solution:</strong> Check the service status and logs:<br>
+                        <code>sudo systemctl status hvm-panel</code><br>
+                        <code>sudo journalctl -u hvm-panel -f</code>
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>Issue:</strong> Docker permission errors<br>
+                        <strong>Solution:</strong> Ensure your user is in the docker group and restart your session:<br>
+                        <code>sudo usermod -aG docker $USER</code><br>
+                        Log out and log back in, or restart the system.
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>Issue:</strong> VPS creation fails<br>
+                        <strong>Solution:</strong> Check Docker daemon is running and has resources:<br>
+                        <code>sudo systemctl status docker</code><br>
+                        <code>docker info</code>
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>Issue:</strong> Web interface not accessible<br>
+                        <strong>Solution:</strong> Check firewall settings and ensure port 3000 is open:<br>
+                        <code>sudo ufw allow 3000</code> (for UFW)<br>
+                        Or check your cloud provider's firewall rules.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section" id="security">
+                <h2>7. Security Considerations</h2>
+                
+                <div class="step">
+                    <h3>Essential Security Practices</h3>
+                    
+                    <div class="note">
+                        <strong>1. Change Default Credentials</strong><br>
+                        Always change the default admin username and password in the <code>.env</code> file before deploying to production.
+                    </div>
+                    
+                    <div class="note">
+                        <strong>2. Use HTTPS</strong><br>
+                        For production use, set up a reverse proxy with SSL/TLS encryption using Nginx or Apache.
+                    </div>
+                    
+                    <div class="note">
+                        <strong>3. Firewall Configuration</strong><br>
+                        Restrict access to the panel port (3000) to trusted IP addresses only.
+                    </div>
+                    
+                    <div class="note">
+                        <strong>4. Regular Updates</strong><br>
+                        Keep the system, Docker, and Python dependencies updated with security patches.
+                    </div>
+                    
+                    <div class="note">
+                        <strong>5. Monitor Resource Usage</strong><br>
+                        Regularly monitor system resources and set up alerts for unusual activity that might indicate abuse.
+                    </div>
+                </div>
+                
+                <div class="success">
+                    <strong>Congratulations!</strong> You've successfully installed and configured HVM Panel. The panel should now be accessible at <code>http://your-server-ip:3000</code>.
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>HVM Panel Installation Guide &copy; 2023 | For support, please refer to the documentation or community forums</p>
+        </footer>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function copyCode(button) {
+            const codeBlock = button.parentNode.querySelector('code');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Visual feedback
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }
+        
+        // Smooth scrolling for table of contents links
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
